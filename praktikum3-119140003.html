@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Aprilia 119140003</title>
+        <script>
+            function theme(){
+                var mode = document.getElementById('switch_mode').textContent;
+                if(mode == "Light Mode"){
+                    document.body.style.backgroundColor = "#FFFFFF";
+                    document.body.style.color = "#000000"
+                    document.getElementById("switch_mode").textContent = "Dark Mode";
+                }
+                else if (mode == "Dark Mode"){
+                    document.body.style.backgroundColor = "#222222";
+                    document.body.style.color = "#FFFFFF"
+                    document.getElementById("switch_mode").textContent = "Light Mode";
+                }
+            }
+
+            function personality(){
+                var bloodtype = document.getElementById("blood").value;
+                if (bloodtype == "A"){
+                    document.getElementById("desc").innerHTML="You are earnest, creative, sensible, reserved, patient, and responsible";
+                }                
+                else if (bloodtype == "B"){
+                    document.getElementById("desc").innerHTML="You are passionate, active nature, creative, and strong";
+                }
+                else if (bloodtype == "AB"){
+                    document.getElementById("desc").innerHTML="You are cool, controlled, rational, and adaptable";
+                }     
+                else if (bloodtype == "O"){
+                    document.getElementById("desc").innerHTML="You are confident, self-determined, strong-willed, and intuitive";
+                }
+                else {
+                    document.getElementById("desc").innerHTML="";
+                }   
+            }
+
+            function factorial(){
+                var count = document.getElementById("number").value;
+                var calculate = 1;
+                for(i=count; i>=1;  i--){
+                    calculate*=i;
+                }
+                document.getElementById("result").innerHTML= ("Result : " + calculate);
+            }
+        </script>
+    </head>
+
+    <body style = "background-color: #DDDDDD; color:black">
+        <button id="switch_mode" onclick="theme()" type="button">Dark Mode</button>
+
+        <br><br>
+        
+        <label>Pick Your Blood Type: </label>
+        <select id="blood" oninput="personality()">
+            <option value="select">select</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>  
+            <option value="O">O</option>              
+        </select>
+        <h4 id=desc></h4>
+
+        <label>Input Number: </label>
+        <input type="number" id="number">
+        <button onclick="factorial()">Calculate</button>
+        <h4 id=result></h4>
+    </body>
+</html>
